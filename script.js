@@ -1,24 +1,23 @@
 $("#pdf-container").on("click",function(){
   dronedeployApiInitialze()
-    .then(window.dronedeploy.Plans.getCurrentlyViewed)
-    .then(fetchTileDataFromPlan)
-    .then(processResponse)
-    .then(sendTileDataToNodeServer)
-    .then(generatePDF)
-    .catch(console.log);
+   
   
 });
 
 function dronedeployApiInitialze() {
-  return new Promise((resolve) => {
-    window.dronedeploy.onload(() => {
-      resolve();
-    });
-  });
+   new DroneDeploy({version: 1}).then(function(api){
+     api.Plans.getCurrentlyViewed()
+      .then(function(plan){
+        return fetchTileDataFromPlan(api, plan);
+      })
+        .then(processResponse)
+        .then(sendTileDataToNodeServer)
+        .then(generatePDF)
+    })
 } 
 
-function fetchTileDataFromPlan(plan) {
-  return window.dronedeploy.Tiles.get({planId: String(plan.id), layerName: 'ortho', zoom: 16});
+function fetchTileDataFromPlan(api, plan) {
+  return api.Tiles.get({planId: String(plan.id), layerName: 'ortho', zoom: 16});
 }
 
 function processResponse(response) {

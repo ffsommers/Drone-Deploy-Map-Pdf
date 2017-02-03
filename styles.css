@@ -381,10 +381,14 @@ input:disabled + label {
 #pdf-container{
   width:99%;
   border: solid 2px red;
+  -webkit-appearance:button;
+  -moz-appearance:button;
+  -o-appearance:button;
+  -ms-appearance:button;    
 }
-#pdf-container:hover {
+/*#pdf-container:hover {
     background-color: yellow;
-}
+}*/
 #pdf-label {
   margin-top: 4%;
   width:40%;
