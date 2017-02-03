@@ -45,6 +45,7 @@ function sendTileDataToNodeServer(tiles) {
   });
 }
 
+// uses PDF make to generate pdf by passing the base64 encoded tiles to the pdfContent function which in turn is processed to create the pdf. function is setup to open PDF if new tab but can also be configured to download pdf. 
 function generatePDF(responseTiles) {
   const docDefinition = pdfContent(responseTiles);
   pdfMake.createPdf(docDefinition).open();
