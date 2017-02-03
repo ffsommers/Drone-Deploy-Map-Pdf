@@ -17,7 +17,7 @@ function dronedeployApiInitialze() {
         .then(generatePDF)
     })
 } 
-
+// grabs tiles form user's currently viewed plan.
 function fetchTileDataFromPlan(api, plan) {
   return api.Tiles.get({planId: String(plan.id), layerName: 'ortho', zoom: 16});
 }
