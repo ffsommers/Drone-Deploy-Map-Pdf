@@ -1,9 +1,10 @@
 $("#pdf-container").on("click",function(){
+  console.log("click");
   dronedeployApiInitialze()
     .then(window.dronedeploy.Plans.getCurrentlyViewed)
     .then(fetchTileDataFromPlan)
     .then(processResponse)
-    .then(sendTileDataToNodeServer);
+    .then(sendTileDataToNodeServer)
     .then(generatePDF)
     .catch(console.log);
   
@@ -26,7 +27,7 @@ function processResponse(response) {
 }
 
 function sendTileDataToNodeServer(tiles) {
-  const url = 'https://dronenode.herokuapp.com/tiles/';
+  const url = 'https://drone-deploy-image-server.herokuapp.com/tiles/';
   const body = JSON.stringify({
     'tile': tiles
   });
@@ -67,7 +68,7 @@ function pdfContent(tilesArray) {
       bold: true
     }
   };
-  for (let i = 0; i < list.length; i++) {
+  for (let i = 0; i < tilesArray.length; i++) {
     content.push({
       image: `data:image/jpeg;base64,${tilesArray[i]}`
     });
