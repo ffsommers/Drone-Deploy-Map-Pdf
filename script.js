@@ -1,8 +1,10 @@
+// button click handler to initialize PDF app
 $("#pdf-container").on("click",function(){
   dronedeployApiInitialze()
    
   
 });
+
 
 function dronedeployApiInitialze() {
    new DroneDeploy({version: 1}).then(function(api){
