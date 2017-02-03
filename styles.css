@@ -376,3 +376,24 @@ input:disabled {
 input:disabled + label {
   color: rgba(0, 0, 0, 0.2);
 }
+
+/* pdf button*/
+#pdf-container{
+  width:99%;
+  border: solid 2px red;
+}
+
+#pdf-label {
+  margin-top: 4%;
+  width:40%;
+  float:left;
+  height:100%;
+  vertical-align: center;
+}
+
+#pdf-icon img{
+  display: inline-block;
+  float:left;
+  height:50px;
+  width:50px;
+}
