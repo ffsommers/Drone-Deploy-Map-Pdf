@@ -51,7 +51,7 @@ function generatePDF(responseTiles) {
   pdfMake.createPdf(docDefinition).open();
 }
 
-
+// passes collection of encoded tile images to generate and format pdf content.
 function pdfContent(tilesArray) {
   var currentdate = new Date(); 
   var datetime = "PDF Generated On: " + currentdate.getDate() + "/"
