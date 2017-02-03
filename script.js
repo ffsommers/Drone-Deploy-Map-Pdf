@@ -25,7 +25,7 @@ function fetchTileDataFromPlan(api, plan) {
 function processResponse(response) {
   return response.tiles;
 }
-
+// fetches imagetiles ( from plan data urls) from image server. explicitly sets headers for CORS so body parser in the express image server can process the request body.  
 function sendTileDataToNodeServer(tiles) {
   const url = 'https://drone-deploy-image-server.herokuapp.com/tiles/';
   const body = JSON.stringify({
