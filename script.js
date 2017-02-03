@@ -3,7 +3,7 @@ $("#pdf-container").on("click",function(){
     .then(window.dronedeploy.Plans.getCurrentlyViewed)
     .then(fetchTileDataFromPlan)
     .then(getTilesFromResponse)
-    .then(getDataUrlViaCustomWebServer)
+    .then(sendTileDataToNodeServer);
     .then(generatePDF)
     .catch(console.log);
   
@@ -18,12 +18,12 @@ function getTilesFromResponse(tileResponse) {
   return tileResponse.tiles;
 }
 
-function getDataUrlViaCustomWebServer(tiles) {
-  const webServerUrl = 'https://dronenode.herokuapp.com/tiles/';
+function sendTileDataToNodeServer(tiles) {
+  const url = 'https://dronenode.herokuapp.com/tiles/';
   const body = JSON.stringify({
     'tile': tiles
   });
-  return fetch(webServerUrl, {
+  return fetch(url, {
     method: 'POST',
     headers : new Headers({
         'Content-Type': 'application/json'
