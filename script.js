@@ -2,20 +2,27 @@ $("#pdf-container").on("click",function(){
   dronedeployApiInitialze()
     .then(window.dronedeploy.Plans.getCurrentlyViewed)
     .then(fetchTileDataFromPlan)
-    .then(getTilesFromResponse)
+    .then(processResponse)
     .then(sendTileDataToNodeServer);
     .then(generatePDF)
     .catch(console.log);
   
-}); 
+});
+
+function dronedeployApiInitialze() {
+  return new Promise((resolve) => {
+    window.dronedeploy.onload(() => {
+      resolve();
+    });
+  });
+} 
 
 function fetchTileDataFromPlan(plan) {
-  // assumed the default layerName as 'ortho' and zoom level as 16
   return window.dronedeploy.Tiles.get({planId: String(plan.id), layerName: 'ortho', zoom: 16});
 }
 
-function getTilesFromResponse(tileResponse) {
-  return tileResponse.tiles;
+function processResponse(response) {
+  return response.tiles;
 }
 
 function sendTileDataToNodeServer(tiles) {
