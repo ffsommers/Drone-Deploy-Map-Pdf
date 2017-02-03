@@ -36,8 +36,11 @@ function sendTileDataToNodeServer(tiles) {
     }),
     body: body
   })
-    .then((res) => res.json())
-    .then((rjson) => rjson);
+    .then(function (res) {
+    return res.json();
+  }).then(function (rjson) {
+    return rjson;
+  });
 }
 
 function generatePDF(responseTiles) {
