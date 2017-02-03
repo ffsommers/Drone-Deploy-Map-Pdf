@@ -382,7 +382,9 @@ input:disabled + label {
   width:99%;
   border: solid 2px red;
 }
-
+#pdf-container:hover {
+    background-color: yellow;
+}
 #pdf-label {
   margin-top: 4%;
   width:40%;

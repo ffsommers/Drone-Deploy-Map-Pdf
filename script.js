@@ -1,5 +1,4 @@
 $("#pdf-container").on("click",function(){
-  console.log("click");
   dronedeployApiInitialze()
     .then(window.dronedeploy.Plans.getCurrentlyViewed)
     .then(fetchTileDataFromPlan)
