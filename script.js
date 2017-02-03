@@ -21,7 +21,7 @@ function dronedeployApiInitialze() {
 function fetchTileDataFromPlan(api, plan) {
   return api.Tiles.get({planId: String(plan.id), layerName: 'ortho', zoom: 16});
 }
-
+// returns tiles from current plan to be sent to image server.
 function processResponse(response) {
   return response.tiles;
 }
