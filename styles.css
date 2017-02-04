@@ -386,9 +386,7 @@ input:disabled + label {
   -o-appearance:button;
   -ms-appearance:button;    
 }
-/*#pdf-container:hover {
-    background-color: yellow;
-}*/
+
 #pdf-label {
   margin-top: 4%;
   width:40%;
