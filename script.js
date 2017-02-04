@@ -1,12 +1,12 @@
 // button click handler to initialize PDF app
 $("#pdf-container").on("click",function(){
-  dronedeployApiInitialze()
+  apiInit()
    
   
 });
 
 // instantiates dronedeploy object and runs functions for getting current tiles, fetching images from image server, and generation of PDF. 
-function dronedeployApiInitialze() {
+function apiInit() {
    new DroneDeploy({version: 1}).then(function(api){
      api.Plans.getCurrentlyViewed()
       .then(function(plan){
