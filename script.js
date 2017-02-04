@@ -54,8 +54,8 @@ function generatePDF(responseTiles) {
 // passes collection of encoded tile images to generate and format pdf content.
 function pdfContent(tilesArray) {
   var currentdate = new Date(); 
-  var datetime = "PDF Generated On: " + currentdate.getDate() + "/"
-                                + (currentdate.getMonth()+1)  + "/" 
+  var datetime = "PDF Generated On: " + (currentdate.getMonth()+1) + "/"
+                                + currentdate.getDate() + "/" 
                                 + currentdate.getFullYear() + " @ "  
                                 + currentdate.getHours() + ":"  
                                 + currentdate.getMinutes() + ":" 
